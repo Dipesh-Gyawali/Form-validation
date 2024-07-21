@@ -11,6 +11,7 @@ function App() {
   const [inputError, setInputError] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
 
+
   const handleChange = (e) => {
     // let name = [e.target.name];
     // let value = e.target.value;
@@ -18,18 +19,21 @@ function App() {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setInputError(validate(input));
     setIsSubmit(true);
   };
 
+  //not required code ho.......error lai track garya ho
   useEffect(() => {
     console.log(inputError, "useffect ko ho");
     if (Object.keys(inputError).length === 0 && isSubmit) {
-      console.log(input, "aaaaaaaaaaa");
+      console.log(input, "aaaaaaaaaaa success vayo");
     }
   }, [inputError]);
+
 
   const validate = (values) => {
     const errors = {};
@@ -52,6 +56,8 @@ function App() {
     }
     return errors;
   };
+
+
   return (
     <>
       <div>
